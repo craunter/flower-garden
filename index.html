@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080e18">
+<title>A Little Garden — Ankita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="landing" class="landing">
+  <div class="landing__stars"></div>
+  <div class="landing__aurora"></div>
+  <div class="landing__botanical landing__botanical--left"></div>
+  <div class="landing__botanical landing__botanical--right"></div>
+  <div class="landing__content">
+    <p class="landing__eyebrow"><span></span>A QUIET PLACE, JUST FOR A MOMENT<span></span></p>
+    <h1>A Little<br><em>Garden</em></h1>
+    <p class="landing__for">for <strong>Ankita</strong></p>
+    <p class="landing__subtitle">Something beautiful is waiting.</p>
+    <button id="enterGardenBtn" class="enter" type="button">Enter the Garden <b>→</b></button>
+    <p class="landing__micro">best experienced with a little patience</p>
+  </div>
+</section>
+
+<div id="transitionVeil" class="transition-veil" aria-hidden="true"><div></div></div>
+
+<main id="garden" class="garden" hidden>
+  <picture class="garden-bg-image" aria-hidden="true">
+    <source media="(max-width: 700px)" srcset="assets/garden-mobile.png">
+    <img src="assets/garden-desktop.png" alt="">
+  </picture>
+  <div class="garden-image-vignette" aria-hidden="true"></div>
+  <div id="gardenParticles" class="particle-field" aria-hidden="true"></div>
+
+  <!-- IMPORTANT: no fake flower SVGs are rendered here.
+       These are invisible touch targets placed over the five real flowers
+       in the approved background image. -->
+  <div id="flowerBed" class="garden__bed" aria-label="Five hidden flowers">
+    <button class="flower-hotspot hotspot-1" data-secret="0" aria-label="Hidden flower"></button>
+    <button class="flower-hotspot hotspot-2" data-secret="1" aria-label="Hidden flower"></button>
+    <button class="flower-hotspot hotspot-3" data-secret="2" aria-label="Hidden flower"></button>
+    <button class="flower-hotspot hotspot-4" data-secret="3" aria-label="Hidden flower"></button>
+    <button class="flower-hotspot hotspot-5" data-secret="4" aria-label="Hidden flower"></button>
+  </div>
+
+  <header class="garden-header">
+    <div class="garden-identity">🌷 <span>A little garden for <b>Ankita</b></span></div>
+    <div class="garden-counter"><span id="foundCount">0</span> / 5 secrets found</div>
+    <div class="garden-controls">
+      <button id="soundToggle" type="button" aria-pressed="true">◉ sound on</button>
+      <button id="nightToggle" type="button" aria-pressed="false">☾ night mode</button>
+    </div>
+  </header>
+
+  <div id="gardenHint" class="garden-hint">
+    <div>Touch a flower</div>
+    <small>and see what it has to say.</small>
+  </div>
+  <div class="garden-progress"><span id="progressFill"></span></div>
+
+  <section id="secretModal" class="secret-modal" hidden role="dialog" aria-modal="true" aria-labelledby="secretTitle">
+    <div class="secret-backdrop"></div>
+    <article class="secret-card">
+      <button id="secretClose" class="secret-close" type="button" aria-label="Close message">×</button>
+      <div id="secretIcon" class="secret-icon">🌷</div>
+      <div class="secret-ornament">⌁</div>
+      <div class="secret-label">FOR Ankita</div>
+      <h2 id="secretTitle">A little secret</h2>
+      <div class="secret-divider"><span></span>✦<span></span></div>
+      <p id="secretMessage"></p>
+    </article>
+  </section>
+
+  <section id="finale" class="finale" hidden>
+    <div class="finale-glow"></div>
+    <button id="butterfly" class="butterfly" type="button" aria-label="Butterfly"><span>🦋</span></button>
+    <div id="memoryModal" class="memory-modal" hidden>
+      <article class="memory-card">
+        <button id="memoryClose" class="secret-close" type="button" aria-label="Close memory">×</button>
+        <div class="secret-ornament">🦋</div>
+        <div class="memory-label">ONE LAST THING...</div>
+        <p>That school-bunk incident...</p>
+        <strong>I don't think I'm ever forgetting that one. 😂</strong>
+      </article>
+    </div>
+  </section>
+
+  <section id="ending" class="ending" hidden>
+    <div class="ending-content">
+      <div>The garden is yours now.</div>
+      <small>Take your time.</small>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
